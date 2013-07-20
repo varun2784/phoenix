@@ -1,0 +1,1 @@
+cmd_/home/varun/Desktop/phoenix/test_driver/ofd.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.5.0-23-generic/scripts/module-common.lds --build-id  -o /home/varun/Desktop/phoenix/test_driver/ofd.ko /home/varun/Desktop/phoenix/test_driver/ofd.o /home/varun/Desktop/phoenix/test_driver/ofd.mod.o

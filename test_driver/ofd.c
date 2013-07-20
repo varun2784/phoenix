@@ -3,17 +3,17 @@
 #include <linux/kernel.h>
 
 static int ofd_init(void) {
-	printk(¨ofd registered\n¨);
+	printk(KERN_INFO "ofd registered");
 	return 0;
 }
 
 static void ofd_exit(void) {
-//	printk(¨vsb: ofd exit¨);
+	printk(KERN_INFO "vsb: ofd exit");
 }
 
 module_init(ofd_init);
 module_exit(ofd_exit);
 
-MODULE_LICENSE(¨GPL¨);
-MODULE_AUTHOR();
-MODULE_DESCRIPTION();
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("VSB");
+MODULE_DESCRIPTION("test");

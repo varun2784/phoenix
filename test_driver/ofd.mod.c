@@ -18,6 +18,7 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x35ec255d, "module_layout" },
+	{ 0x50eedeb8, "printk" },
 };
 
 static const char __module_depends[]
@@ -26,4 +27,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "5E815D0634C714A17953B9A");
+MODULE_INFO(srcversion, "BBEBDFD36BD170031FB4F76");

@@ -10,7 +10,7 @@ static dev_t first_dev;
 static int __init ofd_init(void) {
 	printk(KERN_INFO "vsb: ofd registered\n");
 	if (alloc_chrdev_region(&first_dev, 0, 4, 
-				¨vsb¨) < 0) {
+				"vsb") < 0) {
 		return -1;
 	}
 	printk(KERN_INFO "vsb: ofd <Major %d, Minor %d>\n", 

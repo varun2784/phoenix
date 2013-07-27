@@ -30,6 +30,9 @@ skip lists
 offline BST
 -----------
 b-tree
+B+ tree
+linear hashing
+extendible hashing
 
 priority queue
 --------------
@@ -54,3 +57,5 @@ LAQ
 RMQ
 
 driver kernel
+http://pages.cs.wisc.edu/~remzi/OSTEP/
+http://www.quora.com/Where-can-I-find-difficult-algorithm-data-structure-problems

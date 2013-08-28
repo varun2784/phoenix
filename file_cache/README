@@ -1,0 +1,15 @@
+test.c - test code
+script.sh - shell script to compile and create the static library, the test code is linked to this static library (libfile_cache.a)
+
+Design
+------
+
+file_cache struct has an array of pointers (max_cache_entries) to cache_entry structures. Along with this file_cache has  one  mutex (cache_mutex) to synchronize file_cache_destroy(), file_cache_pin_files() and file_cache_pin_unfiles(). A conditional variable (cache_cond) provides a sleep/wake mechanism when cache entries can be reused. Every cache_entry has a mutex variable as well (entry_mutex). Every cache entry has pre-allocated 32 bytes for filename that are short. For longer names memory needs to be allocated on demand.
+
+Improvements in the design can be done to improve lookup time on the cache. A hash table, judy array or radix tree can be implemented. Currently the code is synchronized a lot reducing the scope of parallel pins / unpins / cache eviction. While pinning the array files is processed sequentially. Therefore a blocked pin request for adding a new entry to cache may prevent pinning cache entries already present in the cache. This can be improved to make pinning multi threaded in itself. This will not be much work. Same can be done for unpinning code as well. Flushing of dirty entries with zero pin count can be assigned to a background worker thread.
+
+Debugging & testing
+-------------------
+valgrind has been run to check for memory leaks
+Test code stresses the file cache code by adding competition within threads to race for reusing cache entries.
+
